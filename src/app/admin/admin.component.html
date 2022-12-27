@@ -1,0 +1,95 @@
+<div class="container my-5 text-right">
+
+  <button type="button" (click)="logout()" class="btn btn-primary" style="    background-color: red;border-color: red;">Logout</button>
+
+</div>
+<div>
+<caption >List of Users</caption>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">User name</th>
+        <th scope="col">User Role</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let u of userlist">
+        <th scope="row">{{u.user_name}}</th>
+        <td>{{u.userType}}</td>
+      
+      </tr>
+    </tbody>
+  </table>
+ <br>
+ <br>
+
+ <!-- <caption >List of Books</caption>
+
+<table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Book Author</th>
+        <th scope="col">Pages</th>
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let b of booklist">
+        <th scope="row">{{b.author}}</th>
+        <td>{{b.pages}}</td>
+      
+      </tr>
+    </tbody>
+  </table>
+   -->
+  <caption >List of books Requested</caption>
+  <table class="table table-striped">
+    <thead>
+      <tr>
+        <th scope="col">Book names</th>
+        <th scope="col">Action</th>
+       
+        
+      </tr>
+    </thead>
+    <tbody>
+      <tr *ngFor="let r of reqbook; let i=index">
+        <th scope="row">{{r.bookname}}</th>
+      
+       <button class="button2" (click)="add(r.bookname,i)">Allocate</button> 
+      
+      </tr>
+    </tbody>
+  </table>
+
+  <button type="button"  class="btn btn-primary" data-toggle="modal" data-target="#addLink" style="background-color: green; border-color: green;">Add LInk</button>
+
+<div #exampleModal class="modal fade" id="addLink" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel">Add New Link</h5>
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>
+        <div class="modal-body">
+      <form [formGroup]="form" (ngSubmit)="onsubmit()">
+    <input type="text" name="firstname" placeholder="link  name" formControlName="linkname" /><br><br>
+    
+    <input type="text" name="lastname" placeholder="link url" formControlName="linkurl" /><br>
+
+<input type="hidden" value="0" formControlName="upcount"/>
+<input type="hidden" value="0" formControlName="downcount"/>
+<input type="submit" class="button3"  value="submit" />
+
+</form>
+
+        </div>
+      </div>
+    </div>
+  </div>
+ 
+ </div>

@@ -1,0 +1,65 @@
+<div class="container my-5 text-right">
+
+  <button type="button" (click)="logout()" class="btn btn-primary" style="    background-color: red;border-color: red;">Logout</button>
+
+</div>
+  <div>
+  <caption style="font-weight: bold;color:red; width: 20em;">
+    List of Books</caption>
+  <table >
+     <thead>
+            <tr>
+              <th>Author</th>
+              <th>Title</th>
+              <th>pages</th>
+              <th>Action</th>
+             
+            </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let b of booklist ; let i=index">
+            <td>{{b.author}}</td>
+            <td>{{b.title}}</td>
+            <td>{{b.pages}}</td>
+            <td> <button class="button2" (click)="dle(b.title,i)" >request</button></td>
+          
+        
+           
+          </tr>
+        </tbody>
+      </table>
+      <br>
+      <caption >List of books Allocated</caption>
+      <table class="table table-striped" style="width: 55%;">
+        <thead>
+          <tr>
+            <th scope="col">Allocated Books </th>
+            
+          </tr>
+        </thead>
+        <tbody>
+          <tr *ngFor="let r of aloocatedbook; let i=index">
+            <td style="    background-color: white;
+            font-weight: bold;" scope="row">{{r.bookname}}</td>
+          </tr>
+        </tbody>
+      </table>
+      <div class="card">
+      <div *ngFor="let l of links;let i=index" class="container">
+        {{l.upcount}} &nbsp;{{l.linkname}}: &nbsp; {{l.linkurl}} &nbsp; <button  class="upvote"   (click)="upVote(l.link_id) ">Upvote</button>
+      
+        &nbsp;<button (click)="downVoteCheck(l.link_id)" class="downvote">downvote</button> 
+        &nbsp; <button (click)="deleting(l.link_id)"  class="delete">delete</button>
+      </div>
+      </div>
+     <!-- <ul *ngFor="let l of links;let i=index">
+      <li>{{l.upcount}} &nbsp;{{l.linkname}}: &nbsp; {{l.linkurl}} &nbsp; <button    (click)="upVote(l.link_id) ">Upvote</button>
+      
+      &nbsp;<button (click)="downVoteCheck(l.link_id)">downvote</button> 
+      &nbsp; <button (click)="deleting(l.link_id)" >delete</button>
+      </li>
+     </ul> -->
+   
+
+      
+</div>

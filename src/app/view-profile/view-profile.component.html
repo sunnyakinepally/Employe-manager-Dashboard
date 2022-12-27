@@ -1,0 +1,64 @@
+
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewprofile"
+    style="background-color: blue; border-color: blue;">View profile</button>
+<div #exampleModal class="modal fade" id="viewprofile" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="exampleModalLabel"> My Profile</h5> &nbsp; &nbsp;
+                <!-- <button class="btn btn-primary" data-toggle="modal" data-target="#editprofile" >edit</button> -->
+
+                <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                    <span aria-hidden="true">&times;</span>
+                </button>
+            </div>
+            <div class="modal-body">
+
+                <div class="container-fluid">
+                    <div class="row">
+                        <div class="col-sm-12">
+                            <div class="card" *ngFor="let l of filteredperson;let i=index">
+                                <div class="card-body">
+                                    <!-- <h5 class="card-title">My Profile</h5> -->
+                                    <div>
+                                        <app-edit></app-edit>
+                                    </div>
+                                    
+                                    <p class="card-text"><strong><label>First name:<span>{{l.firstname}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Mobile Number :<span>{{l.mobile_number}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Date Of Birth:<span>{{l.date_of_birth}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Designation:<span>{{l.Designation}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>address :<span>{{l.address}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Postal_Code :<span>{{l.Postal_Code}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Qualification :<span>{{l.Qualification}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text">
+                                        <strong><label>total_Experience:<span>{{l.total_Experience}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Start_Date_Date
+                                                :<span>{{l.Start_Date_Date}}</span> </label></strong><br></p>
+                                    <p class="card-text"><strong><label>End_Date_Date :<span>{{l.End_Date_Date}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Gender :<span>{{l.Gender}}</span>
+                                            </label></strong><br></p>
+                                    <p class="card-text"><strong><label>Marital_Status:<span>{{l.Marital_Status}}</span>
+                                            </label></strong><br></p>
+                                </div>
+                            </div>
+                          
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+
+        </div>
+    </div>
+</div>

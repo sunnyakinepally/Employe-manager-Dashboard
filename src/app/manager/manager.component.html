@@ -1,0 +1,284 @@
+<button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLink3"
+  style="background-color: green; border-color: green;" (click)="some()">Add project</button>
+<div #exampleModal class="modal fade" id="addLink3" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Add project</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+        <form [formGroup]="addproject" class="form-horizontal" (ngSubmit)="Add()">
+          <input type="hidden" class="form-control" formControlName="Project_ID" name="email" id="email"
+            placeholder="eg Alphabet" autocomplete="off" />
+            <input type="hidden" class="form-control" formControlName="id" name="email" id="email"
+            placeholder="eg Alphabet" autocomplete="off" />
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Project name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" formControlName="Project_Name" name="email" id="email"
+                  placeholder="Project_Name" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Company Name</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" formControlName="Company_Name" name="email" id="email"
+                  placeholder=" Company_Name" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Project Status </label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" formControlName="Project_Status" name="email" id="email"
+                  placeholder="Project_Status" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Company Phone </label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" formControlName="Company_Phone" name="email" id="email"
+                  placeholder="Company_Phone" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">Employee_ID_Number</label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="text" class="form-control" formControlName="Employee_ID_Number" name="email" id="email"
+                  placeholder="Employee_ID_Number" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">project_Start_Date </label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="date" class="form-control" formControlName="project_Start_Date" name="email" id="email"
+                  placeholder="project_Start_Date" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email" class="cols-sm-2 control-label">project_End_Date </label>
+            <div class="cols-sm-10">
+              <div class="input-group">
+                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                <input type="date" class="form-control" formControlName="project_End_Date" name="email" id="email"
+                  placeholder="project_End_Date" autocomplete="off" />
+              </div>
+            </div>
+          </div>
+
+          <div style="width:50%">
+
+
+            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList" [formControl]="addproject.controls['member']">
+            </ng-multiselect-dropdown>
+
+          </div>
+
+
+          <button type="submit" [disabled]="addproject.invalid" class="btn btn-primary">Add</button>
+          <!-- <input type="submit" class="btn btn-primary" [disabled]="editproject.invalid"  value="submit" /> -->
+
+        </form>
+
+      </div>
+    </div>
+  </div>
+</div>
+
+<app-view-profile style="margin-left: 5%;"></app-view-profile>
+&nbsp;&nbsp;
+<button type="button" class="btn btn-primary" 
+              style="background-color: blue; border-color: blue;" onclick="window.location.href='/employee-list' " >View Employees</button> &nbsp;
+
+
+<button (click)="logout()" class="btn btn-primary"
+  style="margin: 5%; background-color: red;border-color: red;margin-left: 45%;"> logout</button>
+<div class="todays-news">
+  <!-- [hidden]="isShowDiv" -->
+  <div class="container">
+    <div class="owl-carousel owl-theme">
+      <div class="item">
+
+        <div *ngFor="let p of getporject;let i=index" class="card">
+          <label style="color: currentColor;">These are the project details</label>
+          <div class="card-body">
+            <label>Project_ID:</label> <span>{{p.Project_ID}}</span> <br>
+            <label>Project_Name:</label> <span>{{p.Project_Name}}</span><br>
+            <label *ngFor=" let m of p.member">member id:<span> {{ m.id}}</span><br>
+              member name : <span> {{m.firstname}}</span>
+            </label><br>
+            <!-- members:{{p.members[0].id}}<br> -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#addLink4"
+              style="background-color: blue; border-color: blue;" (click)="getprojectdetail(p.Project_ID)">View
+              project</button> &nbsp;
+            <div #exampleModal class="modal fade" id="addLink4" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel"> project Details</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <label>Company_Name:</label> <span>{{p.Company_Name}}</span><br>
+                    <label>Project_Status:</label><span>{{p.Project_Status}}</span><br>
+                    <label>Company_Phone:</label><span>{{p.Company_Phone}}</span><br>
+                    <label>Employee_ID_Number:</label><span>{{p.Employee_ID_Number}}</span><br>
+                    <label>project_Start_Date:</label><span>{{p.project_Start_Date}}</span><br>
+                    <label>project_End_Date:</label><span>{{p.project_End_Date}}</span><br>
+
+                    <!-- <label  *ngFor=" let m of p.member;let i=index" >member id:<span> {{m.id}}</span>
+                        member name : <span> {{m.firstname}}</span>
+                      </label> -->
+
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- edit startrs -->
+            <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#editproject"
+              style="background-color: green; border-color: green;" (click)="getprojectdetail(p.Project_ID)">Edit
+              project</button>
+            <div #exampleModal class="modal fade" id="editproject" aria-hidden="true">
+              <div class="modal-dialog" role="document">
+                <div class="modal-content">
+                  <div class="modal-header">
+                    <h5 class="modal-title" id="exampleModalLabel">Edit project</h5>
+                    <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                      <span aria-hidden="true">&times;</span>
+                    </button>
+                  </div>
+                  <div class="modal-body">
+                    <form [formGroup]="editproject" class="form-horizontal" (ngSubmit)="onsubmit()">
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Project name</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <input type="hidden" class="form-control" formControlName="Project_ID" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="Project_Name" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Company Name</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="Company_Name" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Project Status </label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="Project_Status" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Company Phone </label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="Company_Phone" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">Employee_ID_Number</label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="text" class="form-control" formControlName="Employee_ID_Number" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">project_Start_Date </label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="date" class="form-control" formControlName="project_Start_Date" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">project_End_Date </label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="date" class="form-control" formControlName="project_End_Date" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="form-group">
+                        <label for="email" class="cols-sm-2 control-label">project_End_Date </label>
+                        <div class="cols-sm-10">
+                          <div class="input-group">
+                            <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                            <input type="date" class="form-control" formControlName="project_End_Date" name="email"
+                              id="email" placeholder="eg Alphabet" autocomplete="off" />
+                          </div>
+                        </div>
+                      </div>
+                      <div class="forg-group">
+                        <label for="email" class="cols-sm-2 control-label">Add Employees Id</label>
+                        <div class="cols-sm-10">
+                          <div style="width:100%">
+                            <ng-multiselect-dropdown [settings]="dropdownSettings" [data]="dropdownList"
+                              [formControl]="editproject.controls['member']" (onSelect)="onItemSelect($event,details.Project_ID)"
+
+                              (onDeSelect)="onItemDeSelect($event,details.Project_ID)">
+                            </ng-multiselect-dropdown>
+                          </div>
+                        </div>
+                      </div>
+                      <input type="submit" class="button3" value="submit" />
+                    </form>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- edit closed -->
+
+          </div>
+
+        </div>
+      </div>
+
+
+    </div>
+  </div>
+</div>

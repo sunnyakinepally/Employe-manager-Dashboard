@@ -1,0 +1,26 @@
+<div class="container">
+   <div class="col-md-6 col-sm-12">
+      <div class="login-form">
+         <form [formGroup]="login" (ngSubmit)="ValidateLogin()">
+            <!-- <div class="form-group">
+                <label>User Name</label>
+                <input type="text" class="form-control" formControlName="user" placeholder="User Name"  [ngClass]="{'is-invalid': login.controls.user.touched && login.controls.user.invalid}">
+             </div> -->
+            <div class="form-group">
+               <label>Mobile </label>
+               <input type="number" class="form-control" formControlName="mobile_number" placeholder="Number"
+                  [ngClass]="{'is-invalid': login.controls.mobile_number.touched && login.controls.mobile_number.invalid}">
+            </div>
+            <div class="form-group">
+               <label>Password</label>
+               <input type="password" class="form-control" formControlName="pass" placeholder="Password"
+                  [ngClass]="{'is-invalid': login.controls.pass.touched && login.controls.pass.invalid}">
+            </div>
+            <button type="submit" class="button" [disabled]="login.invalid">Login</button>
+            <!-- <button type="submit" [routerLink]="['/register']" class="btn btn-secondary">Register</button> -->
+         </form>
+         <p class="small fw-bold mt-2 pt-1 mb-0">Don't have an account? <a href="/register"
+               class="link-danger">Register</a></p>
+      </div>
+   </div>
+</div>

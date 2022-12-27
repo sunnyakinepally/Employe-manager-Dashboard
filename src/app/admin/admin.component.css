@@ -1,0 +1,31 @@
+caption{
+    font-weight: bold;color:red; width: 20em;
+}
+.button {
+    background-color: darkred;
+    color: white;
+    padding: 2px 5px;
+    margin: 8px 0;
+    border: none;
+    cursor: pointer;
+    width: 25%;
+  }
+  .button2{
+    background-color: blue;
+    color: white;
+    padding: 2px 5px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 35%;
+    margin-left: 10%;
+  }
+  .button3{
+    background-color: blue;
+    color: white;
+    padding: 2px 5px;
+    margin: 5px 0;
+    border: none;
+    cursor: pointer;
+    width: 35%;
+  }

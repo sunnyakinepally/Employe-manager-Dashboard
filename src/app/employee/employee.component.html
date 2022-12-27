@@ -1,0 +1,208 @@
+
+
+  <button type="button" class="btn btn-primary" data-toggle="modal" data-target="#viewSkills"
+style="background-color: yellow; border-color: yellow; color: black;" (click)="fetchskills()" >View Skills</button>
+&nbsp;&nbsp;
+  <app-view-profile></app-view-profile>
+
+  <button (click)="logout()" class="btn btn-primary"
+  style="margin: 5%; background-color: red;border-color: red;margin-left: 45%;"> logout</button>
+
+  
+  <div class="container-fluid">
+    <h3>Current Project</h3>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let prev of currentProject">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Project :</strong>{{prev.Project_Name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><strong>Project Id:</strong>{{prev.Project_ID}}</h6>
+                  <h6 class="card-title" ><strong>Status:</strong><span style="color: green">Active</span></h6>
+                   <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ViewcurrentProjectModal"
+                  (click)="ViewCurrentprojectdetail(prev.Project_ID)" style="background-color: blue;">View
+                  project</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div><br><br>
+<div class="container-fluid">
+    <h3> Previous Projects</h3>
+    <div class="row">
+        <div class="col-md-3" *ngFor="let prev of previousProject">
+            <div class="card" style="width: 18rem;">
+                <div class="card-body">
+                  <h5 class="card-title"><strong>Project :</strong>{{prev.Project_Name}}</h5>
+                  <h6 class="card-subtitle mb-2 text-muted"><strong>Project Id:</strong>{{prev.Project_ID}}</h6>
+                  <h6 class="card-title" ><strong>Status:</strong><span style="color: red">Completed</span></h6>
+                  <button type="button" class="btn btn-info" data-toggle="modal" data-target="#ViewProject"
+                  (click)="ViewPrevprojectdetail(prev.Project_ID)" style="background-color: blue;">View
+                 project</button>
+                </div>
+              </div>
+        </div>
+    </div>
+</div>
+
+
+<div #ViewProjectModal class="modal fade" id="ViewProject" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project Deatails</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+      <table style="width:100%" class="table table-bordered" *ngIf="prevdetails">
+        <tr>
+          <th>Project Name</th>
+          <td>{{prevdetails.Project_Name}}</td>
+        </tr>
+        <tr>
+          <th>Company Name</th>
+          <td>{{prevdetails.Company_Name}}</td>
+        </tr>
+        <tr>
+          <th>Company Phone</th>
+          <td>{{prevdetails.Company_Phone}}</td>
+        </tr>
+        <tr>
+          <th>Project Start Date</th>
+          <td>{{prevdetails.project_Start_Date}}</td>
+        </tr>
+        <tr>
+          <th>Project End Date</th>
+          <td>{{prevdetails.project_End_Date}}</td>
+        </tr>
+        <!-- <tr>
+          <th>Employees</th>
+          <td> 
+          <div class="card w-100" *ngFor="let emp of selectedItems">
+            <div class="card-body">
+              <h5 class="card-title"> Name : {{emp.firstname}}</h5>
+              <p class="card-text"> Designation : {{emp.Designation}}</p>
+              <a href="#" class="btn btn-primary">View More</a>
+            </div>
+          </div></td>
+        </tr> -->
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div #ViewcurrentProjectModal class="modal fade" id="ViewcurrentProjectModal" aria-hidden="true">
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel">Project Deatails</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body" >
+      <table style="width:100%" class="table table-bordered" *ngIf="currdetails">
+        <tr>
+          <th>Project Name</th>
+          <td>{{currdetails.Project_Name}}</td>
+        </tr>
+        <tr>
+          <th>Company Name</th>
+          <td>{{currdetails.Company_Name}}</td>
+        </tr>
+        <tr>
+          <th>Company Phone</th>
+          <td>{{currdetails.Company_Phone}}</td>
+        </tr>
+        <tr>
+          <th>Project Start Date</th>
+          <td>{{currdetails.project_Start_Date}}</td>
+        </tr>
+        <tr>
+          <th>Project End Date</th>
+          <td>{{currdetails.project_End_Date}}</td>
+        </tr>
+        <!-- <tr>
+          <th>Employees</th>
+          <td> 
+          <div class="card w-100" *ngFor="let emp of selectedItems">
+            <div class="card-body">
+              <h5 class="card-title"> Name : {{emp.firstname}}</h5>
+              <p class="card-text"> Designation : {{emp.Designation}}</p>
+              <a href="#" class="btn btn-primary">View More</a>
+            </div>
+          </div></td>
+        </tr> -->
+      </table>
+      </div>
+    </div>
+  </div>
+</div>
+
+
+<div #viewSkills class="modal fade" id="viewSkills" aria-hidden="true" >
+  <div class="modal-dialog" role="document">
+    <div class="modal-content">
+      <div class="modal-header">
+        <h5 class="modal-title" id="exampleModalLabel"> Skill Details</h5>
+        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+          <span aria-hidden="true">&times;</span>
+        </button>
+      </div>
+      <div class="modal-body">
+      <div class="container-fluid">
+        
+                <div class="text-right">
+                  <button class="btn btn-primary" data-toggle="modal" data-target="#editskill"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-pencil" viewBox="0 0 16 16">
+                    <path d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z"/>
+                  </svg></button>
+                </div>
+                <div #viewSkills class="modal fade" id="editskill" aria-hidden="true" >
+                  <div class="modal-dialog" role="document">
+                    <div class="modal-content">
+                      <div class="modal-header">
+                        <h5 class="modal-title" id="exampleModalLabel">Add skill</h5>
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                          <span aria-hidden="true">&times;</span>
+                        </button>
+                      </div>
+                      <div class="modal-body">
+                      <div class="container-fluid">
+                        <form [formGroup]="addskill" class="form-horizontal" (ngSubmit)="onsubmit()" >
+                          <div class="form-group">
+                            <label for="email" class="cols-sm-2 control-label">Skill name </label>
+                            <div class="cols-sm-10">
+                              <div class="input-group">
+                                <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                                <input type="text" class="form-control" formControlName="name" name="email" id="email"
+                                  autocomplete="off" />
+                              </div>
+                            </div>
+                          </div>
+                       <input type="submit" class="button3" value="submit" [disabled]="addskill.invalid" />
+                        </form>
+                      </div>
+                      </div>
+                    </div>
+                  </div>
+                </div>
+                <ul class="list-group">
+                  <li class="list-group-item disabled" *ngFor="let s of skills;let i=index">{{s.name}}
+                    <div class="text-right">  <button (click)="delete(s.id,s.name)" style="background-color: red; color: white;border-color: red;"><svg xmlns="http://www.w3.org/2000/svg" width="16" height="16" fill="currentColor" class="bi bi-trash" viewBox="0 0 16 16">
+                      <path d="M5.5 5.5A.5.5 0 0 1 6 6v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm2.5 0a.5.5 0 0 1 .5.5v6a.5.5 0 0 1-1 0V6a.5.5 0 0 1 .5-.5zm3 .5a.5.5 0 0 0-1 0v6a.5.5 0 0 0 1 0V6z"/>
+                      <path fill-rule="evenodd" d="M14.5 3a1 1 0 0 1-1 1H13v9a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V4h-.5a1 1 0 0 1-1-1V2a1 1 0 0 1 1-1H6a1 1 0 0 1 1-1h2a1 1 0 0 1 1 1h3.5a1 1 0 0 1 1 1v1zM4.118 4 4 4.059V13a1 1 0 0 0 1 1h6a1 1 0 0 0 1-1V4.059L11.882 4H4.118zM2.5 3V2h11v1h-11z"/>
+                    </svg></button></div>
+                  
+                  </li>
+                  
+                </ul>
+            
+         
+      </div>
+      </div>
+    </div>
+  </div>
+</div>

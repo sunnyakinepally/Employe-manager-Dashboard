@@ -1,0 +1,209 @@
+<div class="text-right">
+    <button class="btn btn-primary" data-toggle="modal"  (click)="patch()"
+        data-target="#editprofile"><svg xmlns="http://www.w3.org/2000/svg"
+            width="16" height="16" fill="currentColor" class="bi bi-pencil"
+            viewBox="0 0 16 16">
+
+            <path
+                d="M12.146.146a.5.5 0 0 1 .708 0l3 3a.5.5 0 0 1 0 .708l-10 10a.5.5 0 0 1-.168.11l-5 2a.5.5 0 0 1-.65-.65l2-5a.5.5 0 0 1 .11-.168l10-10zM11.207 2.5 13.5 4.793 14.793 3.5 12.5 1.207 11.207 2.5zm1.586 3L10.5 3.207 4 9.707V10h.5a.5.5 0 0 1 .5.5v.5h.5a.5.5 0 0 1 .5.5v.5h.293l6.5-6.5zm-9.761 5.175-.106.106-1.528 3.821 3.821-1.528.106-.106A.5.5 0 0 1 5 12.5V12h-.5a.5.5 0 0 1-.5-.5V11h-.5a.5.5 0 0 1-.468-.325z" />
+
+        </svg></button>
+        
+</div>
+  <div #exampleModal class="modal fade" id="editprofile" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> profile Details</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>  
+        <div class="modal-body">
+            <form [formGroup]="editprofile" class="form-horizontal" (ngSubmit)="onsubmit()" >
+              <input type="hidden" class="form-control" formControlName="id" name="email" id="email"
+              autocomplete="off" />
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">firstname </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="firstname" name="email" id="email"
+                      autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">middlename </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="middlename" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">lastname  </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="lastname" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">date_of_birth  </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="date_of_birth" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">mobile_number</label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="mobile_number" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">address </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="address" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Postal_Code </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="Postal_Code" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+               <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Qualification </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="Qualification" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">total_Experience </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="number" class="form-control" formControlName="total_Experience" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Start_Date_Date </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="date" class="form-control" formControlName="Start_Date_Date" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">End_Date_Date </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="date" class="form-control" formControlName="End_Date_Date" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <!-- <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Type_of_Employee </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="date" class="form-control" formControlName="Type_of_Employee" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div> -->
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Gender </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="Gender" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Marital_Status </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="Marital_Status" name="email" id="email"
+                      placeholder="eg Alphabet" autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+              <input type="submit" class="button3" value="submit" />
+            </form>
+          </div>
+      </div>
+    </div>
+  </div>
+
+
+
+
+
+
+  <div #exampleModal class="modal fade" id="skillsedit" aria-hidden="true">
+    <div class="modal-dialog" role="document">
+      <div class="modal-content">
+        <div class="modal-header">
+          <h5 class="modal-title" id="exampleModalLabel"> profile Details</h5>
+          
+          <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+            <span aria-hidden="true">&times;</span>
+          </button>
+        </div>  
+        <!-- <div class="modal-body">
+            <form [formGroup]="skills" class="form-horizontal"  >
+              <div class="form-group">
+                <label for="email" class="cols-sm-2 control-label">Skills </label>
+                <div class="cols-sm-10">
+                  <div class="input-group">
+                  
+                    <span class="input-group-addon"><i class="fa fa-envelope fa" aria-hidden="true"></i></span>
+                    <input type="text" class="form-control" formControlName="skills" name="email" id="email"
+                      autocomplete="off" />
+                  </div>
+                </div>
+              </div>
+           
+              <input type="submit" class="button3" value="submit"  />
+            </form>
+          </div> -->
+      </div>
+    </div>
+  </div>
